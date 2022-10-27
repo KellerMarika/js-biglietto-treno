@@ -1,5 +1,6 @@
 /* DATI UTENTE */
-//Km
+//Km 
+//il parseInt esclude eventuali stringhe aggiuntive e utilizzare il primo valore numenrico come valore di tipo number
 const userTravelWidth = parseInt (prompt("inserire il numero di chilometri da percorrere"));
 console.log("n km = ", userTravelWidth);
 //anno nascita
@@ -35,12 +36,16 @@ console.log(userPrice)
 
 //condizioni
 //se utente minorenne : sconto 20%
-if {
+ if (userAge<18){
+    console.log("user minorenne");
 
-}else{
+}else if (userAge>=65){
+    console.log("user over 65");
 //se utente over65 : sconto 40%    
+}else{
+    console.log("user non ne ha voglia")
 }
-
+ 
 
 //a tutti aggiungo l'euro e tolgo i decimali in eccesso
 //per fatrlo ho bisogno che la voariabile uscente abbia lo stesso nome per tutti gli if
