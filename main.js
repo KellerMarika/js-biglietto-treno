@@ -1,58 +1,60 @@
 /* DATI UTENTE */
 
-
 //KM.............................................................
-const userTravelWidth = parseInt(prompt(`Please,
-enter the number of kilometers you wish to travel`));
+let userTravelWidth = prompt(`Please,
+enter the number of kilometers you wish to travel`);
 console.log("n km = ", userTravelWidth, typeof userTravelWidth);
 
 
 if (isNaN(userTravelWidth)) {
     alert("please, enter a correct value");
     //dovrebbe rimandare all'inizio del ciclo riaprendo il prompt
-
 //se valore <1
 }else if (userTravelWidth < 1) {
     alert("this trip is too short! please, try again");
     //dovrebbe rimandare all'inizio del ciclo riaprendo il prompt
+}else{
+    userTravelWidth= parseInt(userTravelWidth);
+    console.log("n km= ", userTravelWidth, typeof userTravelWidth);
 }
 
 
 //ANNO DI NACITA....................................................... 
 //Qui rimuovo il parseint perchè voglio effettuare un controllo sulla lunghezza della stringa inserita (se è già convertito a numero, non posso!)
+
+ //recupero data corrente:
+ const currentData = new Date;
+ // console.log (currentData); 
+
+ //estraggo solamente l'anno dalla data corrente
+ const currentYear = currentData.getFullYear();
+ console.log(currentYear);
+
+ /*ALTERNATIVA
+ const currentYear= (new Date).getFullYear();
+ console.log (currentYear); */
+
 let userBirthYear = prompt(`Please,
 enter your year of birth in extended form`);
-console.log(` userBirthYear.length = ${userBirthYear.length};  userBirthYear typeoff = ${userBirthYear.typeoff}`);
+console.log(`userBirthYear typeoff = ${typeof userBirthYear}`);
 
-if (userBirthYear.length < 4) {
+if (isNaN(userBirthYear)){
+    alert("please, enter a correct value");
+    /* 130 è l'età massima che immagino possa avere l'utente che si sta interfacciando al mio sito*/
+} else if (userBirthYear < (currentYear - 150) ) {
     alert(`incorrect value.
-    the year of birth must be expressed in 4 digits`);
-    //dovrebbe rimandare all'inizio del ciclo riaprendo il prompt 
-
-//se il valore è >=4 allora converto in numero col parseInt e poi controllo che sia davvero un numero    
+    sorry,
+    you are too ancient to travel with us, find a carriage!`);
+    //dovrebbe rimandare all'inizio del ciclo riaprendo il prompt   
+}else if (userBirthYear >currentYear) {
+    alert(`incorrect value.
+    we doubt you are comeing from the future, try again!`);
+    //dovrebbe rimandare all'inizio del ciclo riaprendo il prompt   
 } else {
     userBirthYear = parseInt(userBirthYear);
-    console.log(`userBirthYear con parseINt typeoff= ${userBirthYear.typeoff}`);
+    console.log(`userBirthYear con parseINt typeoff= ${typeof userBirthYear}`);
 }
-
-if ((userTravelWidth.typeoff===undefined) || isNaN(userTravelWidth)) {
-    alert("please, enter a correct value");
-}
-
-
-    //recupero data corrente:
-    const currentData = new Date;
-    // console.log (currentData); 
-
-    //estraggo solamente l'anno dalla data corrente
-    const currentYear = currentData.getFullYear();
-    console.log(currentYear);
-
-    /*ALTERNATIVA
-    const currentYear= (new Date).getFullYear();
-    console.log (currentYear); */
-
-    //ottengo l'età effettiva dell'utente sottraendo dall'anno corrente il dato inserito dall'utente
+//ottengo l'età effettiva dell'utente sottraendo dall'anno corrente il dato inserito dall'utente
     const userAge = currentYear - userBirthYear;
     console.log(userAge);
 
@@ -61,7 +63,6 @@ if ((userTravelWidth.typeoff===undefined) || isNaN(userTravelWidth)) {
 //PREZZO...................................................
 
 /* calcolo prezzo base €/km */
-
     const price = (userTravelWidth * .21);
     console.log(price);
 
