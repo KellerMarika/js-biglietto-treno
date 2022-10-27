@@ -51,14 +51,13 @@ if (userAge < 18) {
 /* tutti coloro che non sono nè minorenni nè over 65 */
 } else {
 
-    priceList = price
+     priceList = price
     console.log("userPrice 65>user>18=", priceList);
 }
-
+ 
 //a tutti aggiungo l'euro e tolgo i decimali in eccesso
 //per fatrlo ho bisogno che la voariabile uscente abbia lo stesso nome per tutti gli if
 
-userPrice = `${priceList} €`;
+userPrice = `${(priceList.toFixed(2))} €`;
 console.log(userPrice);
-
-
+alert(`the final price for your trip is ${(priceList.toFixed(2))} €. Have a nice trip!`)
